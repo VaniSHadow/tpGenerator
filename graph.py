@@ -2,7 +2,7 @@ import random
 import numpy
 import copy
 
-class graph:
+class Graph:
 
     """n表示图中点的个数，m表示图中边的个数"""
     def __init__(self, n, m, directed=True, connected='weak', loop=False):
@@ -23,7 +23,12 @@ class graph:
                         self.matr[self.topo[i]][self.topo[i+1]]=1
                         count = count+1
                 self.RandomGenerTopoEdges(n-1-count)
-            print(self.matr)
+            self.edges = list()
+            for i in range(n):
+                for j in range(n):
+                    if self.matr[i][j]==1:
+                        e = (i, j)
+                        self.edges.append(e)
                 
     """检查图的弱连通性"""
     def CheckWeakConnectivity(self):
@@ -56,4 +61,11 @@ class graph:
                     st = random.randint(0, mid)
                     end = random.randint(mid+1, self.n-1)
                 self.matr[self.topo[st]][self.topo[end]] = 1
+
+    """以字符串返回第i条边的信息"""
+    def GetEdge(self, i, trim=True):
+        if trim:
+            return str(self.edges[i][0]+1)+" "+str(self.edges[i][1]+1)
+        else:
+            return str(self.edges[i][0])+" "+str(self.edges[i][1])
 

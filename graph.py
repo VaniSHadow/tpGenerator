@@ -7,8 +7,8 @@ class Graph:
 	"""n表示图中点的个数，m表示图中边的个数"""
 	def __init__(self, n, m, edge_weight=1, directed=True, connected='weak', loop=False, weighted=False, trim=True):
 		"""
-		n	            图中点的个数
-		m	            图中边的个数
+		n			图中点的个数
+		m			图中边的个数
 		edge_weight		边的权值上限
 		directed		有向性
 		connected		连通性
@@ -66,7 +66,7 @@ class Graph:
 		return True
 
 	"""在图中随机生成edge_num条边"""
-    def RandomGenerTopoEdges(self, edge_num):
+    	def RandomGenerTopoEdges(self, edge_num):
 		for i in range(edge_num):
 			mid = random.randint(1, self.n-2)
 			st = random.randint(0, mid)

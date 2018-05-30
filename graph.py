@@ -14,7 +14,7 @@ class Graph:
             random.shuffle(self.topo)
             self.RandomGenerTopoEdges(m-(n-1))
             weak_connected = self.CheckWeakConnectivity()
-            if not weak_connected:
+            if weak_connected:
                 self.RandomGenerTopoEdges(n-1)
             else:
                 count = 0
